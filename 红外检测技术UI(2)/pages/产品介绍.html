@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>3D 检测器</title>
+    <style>
+        /*3D检测器.png*/
+        .detector-image{
+            position: relative;;
+            left: 0px;
+            top: 0px;
+            width: 430px;
+            height: 972px;
+            opacity: 1;
+            background: url(https://img.js.design/assets/img/67f92590eee5509f9bcb159e.png#1681221e376cc908c9f9c87473cfac60);
+            background-size: cover;
+        }
+        /*文本：使用范围*/
+        .test1{
+            position: absolute;
+            left: 40px;
+            top: 313px;
+            width: 88px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*居住防偷拍矩形*/
+        .rectangle1{
+            position: absolute;
+            left: 36.75px;
+            top: 137.78px;
+            width: 163.02px;
+            height: 71.09px;
+            opacity: 1;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(55px);
+        }
+        /*居住防偷拍框*/
+        .shape1{
+            position: absolute;
+            left: -8px;
+            top: 59px;
+            width: 244px;
+            height: 220px;
+            opacity: 1;
+            background: url('../assets/images/红点排查框.png');
+            background-repeat: no-repeat;
+        }
+        /*矩形*/
+        .rectangle2{
+            position: absolute;
+            left: 201.9px;
+            top: 159.87px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        .rectangle3{
+            position: absolute;
+            left: 201.9px;
+            top: 172.63px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        .rectangle4{
+            position: absolute;
+            left: 201.9px;
+            top: 146.42px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        /*箭头向上*/
+        .shape2{
+            position: absolute;
+            left: 160.17px;
+            top: 154.2px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape3{
+            position: absolute;
+            left: 160.17px;
+            top: 160.48px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape4{
+            position: absolute;
+            left: 160.17px;
+            top: 166.96px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape5{
+            position: absolute;
+            left: 160.17px;
+            top: 172.24px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape6{
+            position: absolute;
+            left: 160.17px;
+            top: 148.75px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape7{
+            position: absolute;
+            left: 160.17px;
+            top: 142.03px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        /*矩形*/
+        .rectangle5{
+            position: absolute;
+            left: 29.29px;
+            top: 185.81px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        .rectangle6{
+            position: absolute;
+            left: 29.29px;
+            top: 173.21px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        .rectangle7{
+            position: absolute;
+            left: 29.29px;
+            top: 179.26px;
+            width: 26.63px;
+            height: 29.83px;
+            opacity: 1;
+        }
+        .shape8{
+            position: absolute;
+            left: 30.75px;
+            top: 159.49px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape9{
+            position: absolute;
+            left: 30.75px;
+            top: 153.21px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape10{
+            position: absolute;
+            left: 30.75px;
+            top: 146.73px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape11{
+            position: absolute;
+            left: 30.75px;
+            top: 140.45px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape12{
+            position: absolute;
+            left: 30.75px;
+            top: 172.94px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape13{
+            position: absolute;
+            left: 30.75px;
+            top: 166.66px;
+            width: 17.58px;
+            height: 7.85px;
+            opacity: 1;
+            background: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        /*文本：居住防偷拍*/
+        .test2{
+            position: absolute;
+            left: 44.33px;
+            top: 145px;
+            width: 120px;
+            height: 35px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 34.75px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*箭头跳转*/
+        .go-to-profile{
+            position: absolute;
+            left: 40px;
+            top: 61px;
+            width: 25px;
+            height: 30px;
+            opacity: 1;
+            background: url('../assets/images/箭头4.png');
+            background-repeat: no-repeat;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        /*圆形*/
+        .circle1{
+            position: absolute;
+            left: 232px;
+            top: 176px;
+            width: 170px;
+            height: 99px;
+            opacity: 1;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(55px);
+        }
+        /*文本：居住防偷拍（标题）*/
+        .test3{
+            position: absolute;
+            left: 158px;
+            top: 61px;
+            width: 120px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*定位照片*/
+        .shape14{
+            position: absolute;
+            left: 102px;
+            top: 86px;
+            width: 430px;
+            height: 430px;
+            mix-blend-mode: lighten;
+            opacity: 1;
+            background: url('../assets/images/3D检测器5.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*矩形路径*/
+        .rectangle8{
+            position: absolute;
+            left: 268px;
+            top: 111px;
+            width: 99px;
+            height: 99px;
+            opacity: 1;
+        }
+        /*形状*/
+        .shape15{
+            position: absolute;
+            left: 280.38px;
+            top: 119.25px;
+            width: 74.25px;
+            height: 89.63px;
+            opacity: 1;
+            background: url('../assets/images/定位.png');
+            background-repeat: no-repeat;
+        }
+        /*文本:提高警惕，防护隐私*/
+        .test4{
+            position: absolute;
+            left: 34px;
+            top: 233px;
+            width: 162px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(212, 48, 48, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*矩形*/
+        .rectangle9{
+            position: absolute;
+            left: 17px;
+            top: 313px;
+            width: 7px;
+            height: 34px;
+            opacity: 1;
+            border-radius: 3.5px;
+            background: linear-gradient(180deg, rgba(212, 48, 48, 1) 10.19%, rgba(162, 51, 51, 0.68) 41.2%, rgba(129, 53, 53, 0.47) 74.54%, rgba(91, 55, 55, 0.23) 95.83%, rgba(56, 56, 56, 0) 100%);
+        }
+        /*文本：重点防范位置*/
+        .test5{
+            position: absolute;
+            left: 44px;
+            top: 471px;
+            width: 132px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*矩形*/
+        .rectangle10{
+            position: absolute;
+            left: 21px;
+            top: 471px;
+            width: 7px;
+            height: 34px;
+            opacity: 1;
+            border-radius: 3.5px;
+            background: linear-gradient(180deg, rgba(212, 48, 48, 1) 10.19%, rgba(162, 51, 51, 0.68) 41.2%, rgba(129, 53, 53, 0.47) 74.54%, rgba(91, 55, 55, 0.23) 95.83%, rgba(56, 56, 56, 0) 100%);
+        }
+        /*矩形框*/
+        .rectangle11{
+            position: absolute;
+            left: 17px;
+            top: 365px;
+            width: 395px;
+            height: 72px;
+            opacity: 1;
+            background: rgba(128, 128, 128, 0.9);
+            border: 1px solid rgba(0, 0, 0, 1);
+        }
+        /*文本：使用范围后缀*/
+        .test6{
+            position: absolute;
+            left: 47px;
+            top: 375px;
+            width: 336px;
+            height: 75px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            /** 文本2 */
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+
+
+        /*矩形框*/
+        .rectangle12{
+            position: absolute;
+            left: 17px;
+            top: 516px;
+            width: 395px;
+            height: 692px;
+            opacity: 1;
+            border-radius: 12px;
+            background: rgba(128, 128, 128, 0.9);
+            border: 1px solid rgba(0, 0, 0, 1);
+        }
+        /*圆*/
+        .circle2{
+            position: absolute;
+            left: 29px;
+            top: 553px;
+            width: 15px;
+            height: 15px;
+            opacity: 1;
+            background: linear-gradient(116.57deg, rgba(212, 48, 48, 1) 0%, rgba(0, 0, 0, 0.74) 100%);
+        }
+        /*文本：酒店民宿*/
+        .test7{
+            position: absolute;
+            left: 53px;
+            top: 553px;
+            width: 336px;
+            height: 125px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*圆*/
+        .circle3{
+            position: absolute;
+            left: 35px;
+            top: 898px;
+            width: 15px;
+            height: 15px;
+            opacity: 1;
+            background: linear-gradient(116.57deg, rgba(212, 48, 48, 1) 0%, rgba(0, 0, 0, 0.74) 100%);
+        }
+        /*文本：更衣室*/
+        .test8{
+            position: absolute;
+            left: 59px;
+            top: 898px;
+            width: 336px;
+            height: 75px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*图片：烟雾报警器*/
+        .image1{
+            position: absolute;
+            left: 224px;
+            top: 703px;
+            width: 77.27px;
+            height: 78.05px;
+            opacity: 1;
+            background: url('../assets/images/烟雾报警器.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：插座*/
+        .image2{
+            position: absolute;
+            left: 37px;
+            top: 703px;
+            width: 77.27px;
+            height: 78.05px;
+            opacity: 1;
+            background: url('../assets/images/插座.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：镜子*/
+        .image3{
+            position: absolute;
+            left: 134px;
+            top: 989px;
+            width: 76.65px;
+            height: 78.05px;
+            opacity: 1;
+            background: url('../assets/images/镜子.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：门把手*/
+        .image4{
+            position: absolute;
+            left: 319px;
+            top: 703px;
+            width: 77.27px;
+            height: 78.05px;
+            opacity: 1;
+            background: url('../assets/images/门把手.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：鞋柜*/
+        .image5{
+            position: absolute;
+            left: 46px;
+            top: 989px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/鞋柜.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：空调*/
+        .image6{
+            position: absolute;
+            left: 37px;
+            top: 796px;
+            width: 152px;
+            height: 77px;
+            opacity: 1;
+            background: url('../assets/images/空调.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：浴室*/
+        .image7{
+            position: absolute;
+            left: 131px;
+            top: 703px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/浴室.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：马桶水箱*/
+        .image8{
+            position: absolute;
+            left: 208px;
+            top: 796px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/马桶水箱.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：挂钩*/
+        .image9{
+            position: absolute;
+            left: 227px;
+            top: 989px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/挂钩.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：天花板角落*/
+        .image10{
+            position: absolute;
+            left: 320px;
+            top: 988px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/天花板角落.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：通风口*/
+        .image11{
+            position: absolute;
+            left: 49px;
+            top: 1076px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/通风口.png');
+            background-repeat: no-repeat;
+        }
+        /*图片：纸巾盒*/
+        .image12{
+            position: absolute;
+            left: 309px;
+            top: 795px;
+            width: 76.65px;
+            height: 77.43px;
+            opacity: 1;
+            background: url('../assets/images/纸巾盒.png');
+            background-repeat: no-repeat;
+        }
+        /*底部背景*/
+        .image13{
+            position: absolute;
+            left: 0px;
+            top: 909px;
+            width: 430px;
+            height: 438px;
+            opacity: 1;
+            background: url('../assets/images/纯背景.png');
+            background-repeat: no-repeat;
+        }
+        /* 可点击跳转的文本样式 */
+        .clickable {
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="detector-image">
+    <div class="image13"></div>
+        <div class="test1">使用范围</div>
+        <div class="rectangle1"></div>
+        <div class="shape1"></div>
+        <div class="rectangle2"></div>
+        <div class="rectangle3"></div>
+        <div class="rectangle4"></div>
+        <div class="shape2"></div>
+        <div class="shape3"></div>
+        <div class="shape4"></div>
+        <div class="shape5"></div>
+        <div class="shape6"></div>
+        <div class="shape7"></div>
+        <div class="rectangle5"></div>
+        <div class="rectangle6"></div>
+        <div class="rectangle7"></div>
+        <div class="shape8"></div>
+        <div class="shape9"></div>
+        <div class="shape10"></div>
+        <div class="shape11"></div>
+        <div class="shape12"></div>
+        <div class="shape13"></div>
+        <div class="test2">居住防偷拍</div>
+        <button class="go-to-profile"onclick="window.location.href='../index.html'"></button>
+        <div class="circle1"></div>
+        <div class="test3">居住防偷拍</div>
+        <div class="shape14"></div>
+        <div class="rectangle8"></div>
+        <div class="shape15"></div>
+        <div class="test4">提高警惕，保护隐私</div>
+        <div class="rectangle9"></div>
+        <div class="test5">重点防范位置</div>
+        <div class="rectangle10"></div>
+        <div class="rectangle11"></div>
+        <div class="test6">住宿场所：酒店、民宿、出租屋等人员流动性大的场所私密场所：如更衣间、洗手间</div>
+        <div class="rectangle12"></div>
+        <div class="circle2"></div>
+        <div class="test7">酒店民宿：电视、路由器、空调等电器的附近或内部，因为这些地方容易接入电源且便于隐藏摄像头；床对面的墙面装饰画、插座、烟雾报警器，可能被改装成偷拍设备；浴室的淋浴喷头、马桶水箱、纸巾盒，这些位置可以较好地拍摄到隐私画面。</div>
+        <div class="circle3"></div>
+        <div class="test8">更衣室：挂钩、试衣镜周围，偷拍设备可以利用这些位置的便利角度进行拍摄；通风口、天花板角落，也可能被安装偷拍装置。</div>
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+        <div class="image6"></div>
+        <div class="image7"></div>
+        <div class="image8"></div>
+        <div class="image9"></div>
+        <div class="image10"></div>
+        <div class="image11"></div>
+        <div class="image12"></div>
+    </div>
+</body>
+</html>

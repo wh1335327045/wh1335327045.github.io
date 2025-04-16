@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>3D 检测器</title>
+    <style>
+        .image-container {
+            position: relative;
+            left: -1px;
+            top: -1px;
+            width: 431px;
+            height: 932px;
+            opacity: 1;
+            background: url('../assets/images/3D检测器1背景.png');
+            background-size: cover;
+        }
+        /*矩形1*/
+        .rectangle {
+            position: absolute;
+            left: 36.98px;
+            top: 95.26px;
+            width: 145.65px;
+            height: 63.66px;
+            opacity: 0;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(55px);
+        }
+        /*红点排查框*/
+        .go-to-profile2{
+            position: absolute;
+            left: -3px;
+            top: 23px;
+            width: 218px;
+            height: 197px;
+            opacity: 0.77;
+            font-size: 20px;
+            border: none;
+            cursor: pointer; /* 点击指针样式 */
+            background: url('../assets/images/红点排查框.png');
+        }
+        #photoInput {
+            display: none;
+        }
+        /*矩形2*/
+        .rectangle2{
+            position: absolute;
+            left: 184.54px;
+            top: 113.33px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 0;
+        }
+        /*矩形3*/
+        .rectangle3{
+            position: absolute;
+            left: 184.54px;
+            top: 124.75px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形4*/
+        .rectangle4{
+            position: absolute;
+            left: 184.54px;
+            top: 101.28px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*箭头向上*/
+        .shape2{
+            position: absolute;
+            left: 163.33px;
+            top: 118.99px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape3{
+            position: absolute;
+            left: 163.33px;
+            top: 124.61px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape4{
+            position: absolute;
+            left: 163.33px;
+            top: 130.42px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape5{
+            position: absolute;
+            left: 163.33px;
+            top: 136.04px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape6{
+            position: absolute;
+            left: 163.33px;
+            top: 106.95px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape7{
+            position: absolute;
+            left: 163.33px;
+            top: 112.57px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        /*矩形5*/
+        .rectangle5{
+            position: absolute;
+            left: 30.32px;
+            top: 136.55px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形6*/
+        .rectangle6{
+            position: absolute;
+            left: 30.32px;
+            top: 125.13px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形7*/
+        .rectangle7{
+            position: absolute;
+            left: 30.32px;
+            top: 148.6px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*箭头向下*/
+        .shape8{
+            position: absolute;
+            left: 32.52px;
+            top: 130.89px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape9{
+            position: absolute;
+            left: 32.52px;
+            top: 125.27px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape10{
+            position: absolute;
+            left: 32.52px;
+            top: 119.46px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape11{
+            position: absolute;
+            left: 32.52px;
+            top: 136.55px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape12{
+            position: absolute;
+            left: 32.52px;
+            top: 142.93px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape13{
+            position: absolute;
+            left: 32.52px;
+            top: 113.84px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        /*文本：红点排查*/
+        .test1{/*文本 1*/
+            position: absolute;
+            left: 70px;
+            top: 113px;
+            width: 80px;
+            height: 29px;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 28.96px;
+            color: rgb(255, 255, 255,1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：网络检查*/
+        .test2{/*文本 2*/
+            position: absolute;
+            left: 287px;
+            top: 113px;
+            width: 80px;
+            height: 29px;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 28.96px;
+            color: rgba(166, 166, 166, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：智能红外线增强检测*/
+        .test3{/*文本 3*/
+            position: absolute;
+            left: 125px;
+            top: 503px;
+            width: 180px;
+            height: 29px;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 28.96px;
+            color: rgba(244, 43, 43, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：特长那段*/
+        .test4{/*文本 4*/
+            position: absolute;
+            left: 35px;
+            top: 556px;
+            width: 359px;
+            height: 75px;
+            opacity: 1;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：开始检测*/
+        .test5{/*文本 5*/
+            position: absolute;
+            left: 174px;
+            top: 684px;
+            width: 80px;
+            height: 25px;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*矩形8*/
+        .rectangle8{
+            position: absolute;
+            left: 254.14px;
+            top: 95.26px;
+            width: 145.65px;
+            height: 63.66px;
+            opacity: 0.77;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(55px);
+        }
+        /*网络检查框*/
+        .shape0{
+            position: absolute;
+            left: 212.25px;
+            top: 23px;
+            width: 218px;
+            height: 197px;
+            opacity: 0.77;
+            background: url('../assets/images/红点排查框.png');
+        }
+        /*矩形9*/
+        .rectangle9{
+            position: absolute;
+            left: 399.79px;
+            top: 113.33px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形10*/
+        .rectangle10{
+            position: absolute;
+            left: 399.79px;
+            top: 124.75px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形11*/
+        .rectangle11{
+            position: absolute;
+            left: 399.79px;
+            top: 101.28px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*箭头向上*/
+        .shape14{
+            position: absolute;
+            left: 378.59px;
+            top: 118.99px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape15{
+            position: absolute;
+            left: 378.59px;
+            top: 124.61px;
+            width: 15.71px;
+            height: 26.66px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape16{
+            position: absolute;
+            left: 378.59px;
+            top: 130.42px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape17{
+            position: absolute;
+            left: 378.59px;
+            top: 136.04px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape18{
+            position: absolute;
+            left: 378.59px;
+            top: 106.95px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        .shape19{
+            position: absolute;
+            left: 378.59px;
+            top: 112.57px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向上.png');
+            background-repeat: no-repeat;
+        }
+        /*矩形12*/
+        .rectangle12{
+            position: absolute;
+            left: 245.57px;
+            top: 125.13px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形13*/
+        .rectangle13{
+            position: absolute;
+            left: 245.57px;
+            top: 148.6px;
+            width: 23.85px;
+            height: 26.66px;
+            opacity: 1;
+        }
+        /*矩形14*/
+        .rectangle14{
+            position: absolute;
+            left: 245.57px;
+            top: 148.6px;
+            width: 47.31px;
+            height: 26.66px;
+            opacity: 0.77;
+        }
+        /*箭头向下*/
+        .shape20{
+            position: absolute;
+            left: 256.78px;
+            top: 137.31px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape21{
+            position: absolute;
+            left: 256.78px;
+            top: 142.93px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape22{
+            position: absolute;
+            left: 256.78px;
+            top: 113.84px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape23{
+            position: absolute;
+            left: 256.78px;
+            top: 119.46px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape24{
+            position: absolute;
+            left: 256.78px;
+            top: 125.27px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        .shape25{
+            position: absolute;
+            left: 256.78px;
+            top: 130.89px;
+            width: 15.71px;
+            height: 7.03px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头向下.png');
+            background-repeat: no-repeat;
+        }
+        /*圆形 1*/
+        .circle1 {
+            position: absolute;
+            left: 81.53px;
+            top: 204.77px;
+            width: 250.01px;
+            height: 250.01px;
+            opacity: 1;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(66px);
+        }
+        /*按钮 1*/
+        .button1 {
+            position: absolute;
+            left: 14px;
+            top: 891px;
+            width: 37px;
+            height: 38px;
+            opacity: 1;
+        }
+        /*主页*/
+        .shape26{
+            position: absolute;
+            left: 19.4px;
+            top: 896.54px;
+            width: 26.21px;
+            height: 26.92px;
+            opacity: 1;
+            background-image: url('../assets/images/主界面.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*圆形 2*/
+        .circle2 {
+            position: absolute;
+            left: 186.53px;
+            top: 302px;
+            width: 54.74px;
+            height: 54.74px;
+            opacity: 1;
+            background: rgba(212,48, 48, 1);
+            filter: blur(33px);
+        }
+        /*矩形15*/
+        .rectangle15{
+            position: absolute;
+            left: 91px;
+            top: 670px;
+            width: 248px;
+            height: 53px;
+            opacity: 1;
+            border-radius: 37.5px;
+            background: linear-gradient(90deg, rgba(212, 48, 48, 1) 0%, rgba(94, 0, 0, 0.92) 0%, rgba(98, 15, 15, 0.86) 21.76%, rgba(113, 70, 70, 0.66) 100%, rgba(120, 97, 97, 0.57) 101%, rgba(128, 128, 128, 0.46) 102%);
+        }
+        /*3d检测器3.png*/
+        .shape27{
+            position: absolute;
+            left: -62px;
+            top: 43px;
+            width: 518px;
+            height: 518px;
+            opacity: 1;
+            background-image: url('../assets/images/3D检测器.png');
+            background-repeat: no-repeat;
+        }
+        /*个人中心*/
+        .go-to-profile{
+            position: absolute;
+            left: 367px;
+            top: 890px;
+            width: 37px;
+            height: 37px;
+            opacity: 1;
+            background-image: url('../assets/images/个人中心.png');
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .go-to-profile1{
+            position: absolute;
+            left: 91px;
+            top: 670px;
+            width: 248px;
+            height: 53px;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /* 可点击跳转的文本样式 */
+        .clickable {
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="image-container">
+            <div class="rectangle"></div>
+            <button class="go-to-profile2" onclick="window.location.href=camera"></button>
+            <div class="rectangle2"></div>
+            <div class="rectangle3"></div>
+            <div class="rectangle4"></div>
+            <div class="shape2"></div>
+            <div class="shape3"></div>
+            <div class="shape4"></div>
+            <div class="shape5"></div>
+            <div class="shape6"></div>
+            <div class="shape7"></div>
+            <div class="rectangle5"></div>
+            <div class="rectangle6"></div>
+            <div class="rectangle7"></div>
+            <div class="shape8"></div>
+            <div class="shape9"></div>
+            <div class="shape10"></div>
+            <div class="shape11"></div>
+            <div class="shape12"></div>
+            <div class="shape13"></div>
+            <div class="test1">红点排查</div>
+            <div class="test2">网络检查</div>
+            <div class="test3">智能红外线增强检测</div>
+            <div class="test4">为了提高检测可靠性，请关闭室内灯光及窗帘，打开红外探测，缓慢移动靠近待查看的可疑物品，出现红点后开灯查看确认。</div>
+            <div class="test5">开始检测</div>
+            <div class="rectangle8"></div>
+            <div class="shape0"></div>
+            <div class="rectangle9"></div>
+            <div class="rectangle10"></div>
+            <div class="rectangle11"></div>
+            <div class="shape14"></div>
+            <div class="shape15"></div>
+            <div class="shape16"></div>
+            <div class="shape17"></div>
+            <div class="shape18"></div>
+            <div class="shape19"></div>
+            <div class="rectangle12"></div>
+            <div class="rectangle13"></div>
+            <div class="rectangle14"></div>
+            <div class="shape20"></div>
+            <div class="shape21"></div>
+            <div class="shape22"></div>
+            <div class="shape23"></div>
+            <div class="shape24"></div>
+            <div class="shape25"></div>
+            <div class="circle1"></div>
+            <div class="botton1"></div>
+            <div class="shape26"></div>
+            <div class="circle2"></div>
+            <div class="rectangle15"></div>
+            <div class="shape27"></div>
+            <button class="go-to-profile" onclick="window.location.href='../pages/index.html'"></button>
+            <button class="go-to-profile1" onclick="window.location.href='../pages/网络检查.html'"></button>
+        </div>
+</body>
+</html>

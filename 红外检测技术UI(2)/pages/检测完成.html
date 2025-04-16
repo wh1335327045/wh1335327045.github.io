@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>3D 检测器</title>
+    <style>
+        /*3d检测器.png*/
+        .detector-image{
+            position: relative;
+            left: 0px;
+            top: 0px;
+            width: 430px;
+            height: 972px;
+            opacity: 1;
+            background: url('../assets/images/3D检测器1背景.png');
+            background-size: cover;
+        }
+        /*圆1*/
+        .circle{
+            position: absolute;
+            left: 61.13px;
+            top: 159.94px;
+            width: 292px;
+            height: 292px;
+            opacity: 1;
+            background: rgba(0, 0, 0, 1);
+            filter: blur(66px);
+        }
+        /*3D检测器*/
+        .shape{
+            position: absolute;
+            left: -103px;
+            top: -29px;
+            width: 605px;
+            height: 605px;
+            opacity: 1;
+            background: url('../assets/images/3D检测器.png');
+        }
+        /*圆2*/
+        .circle2{
+            position: absolute;
+            left: 184.23px;
+            top: 273.5px;
+            width: 63.94px;
+            height: 63.94px;
+            opacity: 1;
+            background: rgba(212, 48, 48, 1);
+            filter: blur(33px);
+        }
+        /*文本：您已连接wifi*/
+        .test1{
+            position: absolute;
+            left: 132px;
+            top: 75px;
+            width: 150px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 26px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*箭头*/
+        .shape1{
+            position: absolute;
+            left: 39px;
+            top: 75px;
+            width: 25px;
+            height: 26px;
+            opacity: 1;
+            background-image: url('../assets/images/箭头4.png');
+            background-repeat: no-repeat;
+        }
+        /*矩形蒙版*/
+        .rectangle1{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 430px;
+            height: 932px;
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.48);
+        }
+        /*矩形文字框*/
+        .rectangle2{
+            position: absolute;
+            left: 22px;
+            top: 363px;
+            width: 386px;
+            height: 260px;
+            opacity: 1;
+            border-radius: 27px;
+            background: rgba(255, 255, 255, 1);
+        }
+        /*文本；检测完成*/
+        .test2{
+            position: absolute;
+            left: 172px;
+            top: 399px;
+            width: 88px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(0, 0, 0, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：特长那段*/
+        .test3{
+            position: absolute;
+            left: 52px;
+            top: 452px;
+            width: 326px;
+            height: 50px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(56, 56, 56, 1);
+            /** 文本2 */
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(212, 48, 48, 1);
+            /** 文本3 */
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(56, 56, 56, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*矩形框暂不查看*/
+        .rectangle3{
+            position: absolute;
+            left: 52px;
+            top: 542px;
+            width: 141px;
+            height: 44px;
+            opacity: 1;
+            border-radius: 22px;
+            border: 1px solid rgba(166, 166, 166, 1);
+        }
+        /*矩形框查看可疑设备*/
+        .rectangle4{
+            position: absolute;
+            left: 238px;
+            top: 542px;
+            width: 141px;
+            height: 44px;
+            opacity: 1;
+            border-radius: 22px;
+            background: linear-gradient(90deg, rgba(212, 48, 48, 1) 0%, rgba(56, 56, 56, 0.27) 100%);
+        }
+        /*按钮暂不查看*/
+        .go-to-profile{
+            position: absolute;
+            left: 52px;
+            top: 542px;
+            width: 141px;
+            height: 44px;
+            opacity: 0;
+            border-radius: 22px;
+            cursor: pointer;
+        }
+        /*按钮查看可疑设备*/
+        .go-to-profile2{
+            position: absolute;
+            left: 238px;
+            top: 542px;
+            width: 141px;
+            height: 44px;
+            opacity: 0;
+            border-radius: 22px;
+            cursor: pointer;
+        }
+        /*文本：暂不查看*/
+        .test4{
+            position: absolute;
+            left: 87px;
+            top: 552px;
+            width: 72px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(128, 128, 128, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+        /*文本：查看可疑设备*/
+        .test5{
+            position: absolute;
+            left: 255px;
+            top: 551px;
+            width: 108px;
+            height: 25px;
+            opacity: 1;
+            /** 文本1 */
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            line-height: 25px;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+            vertical-align: top;
+        }
+         /* 可点击跳转的文本样式 */
+        .clickable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="detector-image">
+        <div class="circle"></div>
+        <div class="shape"></div>
+        <div class="circle2"></div>
+        <div class="test1">您已连接wifi</div>
+        <div class="shape1"></div>
+        <div class="rectangle1"></div>
+        <div class="rectangle2"></div>
+        <div class="test2">检测完成</div>
+        <div class="test3">已检测到可疑设备数量 n 台，存在被偷拍风险，点击查看可疑设备详情</div>
+        <div class="rectangle3"></div>
+        <div class="rectangle4"></div>
+        <botton class="go-to-profile"onclick="window.location.href='主界面.html'"></botton>
+        <botton class="go-to-profile2"onclick="window.location.href='可疑设备.html'"></botton>
+        <div class="test4">暂不查看</div>
+        <div class="test5">查看可疑设备</div>
+    </div>
+</body>
+</html>
